@@ -1,0 +1,40 @@
+customer: 
+    id
+    name
+    phoneNumber
+    status
+    createdAt
+
+users:
+    id
+    name
+    email
+    password
+    refreshtoken
+
+loan:
+    id
+    customerId
+    description
+    amount
+    date
+
+payments:
+    id
+    transactionNumber
+    accountNumber
+    payingName
+    amount
+    assigned
+    transactionSource
+    paidDate 
+    assignedTo
+
+sms:
+    id
+    customerId
+    message
+    date
+    type
+    status
+    
