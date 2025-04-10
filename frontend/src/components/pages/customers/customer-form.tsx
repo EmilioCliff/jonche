@@ -13,7 +13,7 @@ import { Input } from '@/components/ui/input';
 import { CardContent, CardFooter } from '@/components/ui/card';
 import { CustomerFormType, customerFormSchema } from '@/pages/customers/schema';
 import { toast } from 'react-toastify';
-import { addCustomer } from '@/components/services/add-customer';
+import { addCustomer } from '@/services/add-customer';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 interface CustomerFormProps {

@@ -22,8 +22,8 @@ import {
 	useQuery,
 	useQueryClient,
 } from '@tanstack/react-query';
-import { getCustomerList } from '@/components/services/get-customer-list';
-import { addSMS } from '@/components/services/add-sms';
+import { getCustomerList } from '@/services/get-customer-list';
+import { addSMS } from '@/services/add-sms';
 import { toast } from 'react-toastify';
 
 export function SMSForm() {

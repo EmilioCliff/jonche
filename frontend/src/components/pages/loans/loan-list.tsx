@@ -20,7 +20,7 @@ import { ChevronLeft, ChevronRight, Search } from 'lucide-react';
 import { useTable } from '@/hooks/UseTable';
 import { useDebounce } from '@/hooks/useDebounce';
 import { keepPreviousData, useQuery } from '@tanstack/react-query';
-import { getLoans } from '@/components/services/get-loans';
+import { getLoans } from '@/services/get-loans';
 import { format } from 'date-fns';
 
 export function LoanList() {

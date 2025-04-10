@@ -21,7 +21,7 @@ import {
 import { useTable } from '@/hooks/UseTable';
 import { useDebounce } from '@/hooks/useDebounce';
 import { keepPreviousData, useQuery } from '@tanstack/react-query';
-import { getSMS } from '@/components/services/get-sms';
+import { getSMS } from '@/services/get-sms';
 import { format } from 'date-fns';
 
 export function SMSList() {

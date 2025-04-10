@@ -21,3 +21,16 @@ export const customerFormSchema = z.object({
 });
 
 export type CustomerFormType = z.infer<typeof customerFormSchema>;
+
+export const customerEditFormSchema = z.object({
+	id: z.number(),
+	name: z.string().min(2, {
+		message: 'Name must be at least 2 characters.',
+	}),
+	phone_number: z.string().min(10, {
+		message: 'Phone number must be at least 10 digits.',
+	}),
+	status: z.enum(['true', 'false']),
+});
+
+export type CustomerEditFormType = z.infer<typeof customerEditFormSchema>;

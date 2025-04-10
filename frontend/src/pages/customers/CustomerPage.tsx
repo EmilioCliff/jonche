@@ -20,10 +20,10 @@ import {
 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { useTable } from '@/hooks/UseTable';
-import { getCustomer } from '@/components/services/get-customer';
-import { getCustomerLoans } from '@/components/services/get-customer-loans';
-import { getCustomerPayments } from '@/components/services/get-customer-payments';
-import { getCustomerSms } from '@/components/services/get-customer-sms';
+import { getCustomer } from '@/services/get-customer';
+import { getCustomerLoans } from '@/services/get-customer-loans';
+import { getCustomerPayments } from '@/services/get-customer-payments';
+import { getCustomerSms } from '@/services/get-customer-sms';
 import {
 	Table,
 	TableBody,
@@ -46,11 +46,21 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from '@/components/ui/select';
+import {
+	Dialog,
+	DialogContent,
+	DialogDescription,
+	DialogHeader,
+	DialogTitle,
+	DialogTrigger,
+} from '@/components/ui/dialog';
 import { format } from 'date-fns';
+import { EditCustomerForm } from '@/components/pages/customers/customer-edit';
 
 export default function SingleCustomerPage() {
 	let params = useParams<string>();
 	const [searchParams, setSearchParams] = useSearchParams();
+	const [formOpen, setFormOpen] = useState(false);
 	const tab = searchParams.get('tab') ?? 'loans';
 
 	const {
@@ -105,17 +115,13 @@ export default function SingleCustomerPage() {
 				text={`Manage customer ID: ${params.id}`}
 			>
 				<Button variant="outline" onClick={resetTableState} asChild>
-					<Link
-						to={'/customers'}
-						// href="/dashboard/customers"
-					>
+					<Link to={'/customers'}>
 						<ArrowLeft className="mr-2 h-4 w-4" />
 						Back to Customers
 					</Link>
 				</Button>
 			</DashboardHeader>
 
-			{/* <CustomerDetails id={params.id || ''} /> */}
 			<Card>
 				<CardHeader className="flex flex-row items-start justify-between">
 					<div>
@@ -135,16 +141,40 @@ export default function SingleCustomerPage() {
 						<Button variant="outline" size="sm" asChild>
 							<Link
 								to={`/sms/new?customer=${customerDetailsQuery.data?.data.id}`}
-								// href={`/dashboard/sms/new?customer=${id}`}
 							>
 								<MessageSquare className="mr-2 h-4 w-4" />
 								Send SMS
 							</Link>
 						</Button>
-						<Button variant="outline" size="sm">
-							<Edit className="mr-2 h-4 w-4" />
-							Edit
-						</Button>
+						<Dialog open={formOpen} onOpenChange={setFormOpen}>
+							<DialogTrigger asChild>
+								<Button variant="outline" size="sm">
+									<Edit className="mr-2 h-4 w-4" />
+									Edit
+								</Button>
+							</DialogTrigger>
+							<DialogContent>
+								<DialogHeader>
+									<DialogTitle>Edit Customer</DialogTitle>
+									<DialogDescription>
+										Update the customer's details below.
+									</DialogDescription>
+								</DialogHeader>
+
+								{customerDetailsQuery.data?.data ? (
+									<EditCustomerForm
+										onFormOpen={setFormOpen}
+										customer={
+											customerDetailsQuery.data.data
+										}
+									/>
+								) : (
+									<p className="text-sm text-muted-foreground">
+										Loading customer data...
+									</p>
+								)}
+							</DialogContent>
+						</Dialog>
 					</div>
 				</CardHeader>
 				<CardContent>
@@ -585,8 +615,7 @@ export default function SingleCustomerPage() {
 							</div>
 							<Button asChild>
 								<Link
-									to={'/'}
-									// href={`/dashboard/sms/new?customer=${id}`}
+									to={`/sms/new?customer=${customerDetailsQuery.data?.data.id}`}
 								>
 									<MessageSquarePlus className="mr-2 h-4 w-4" />
 									Send New SMS

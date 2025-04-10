@@ -47,11 +47,11 @@ import {
 	useQuery,
 	useQueryClient,
 } from '@tanstack/react-query';
-import { getPayments } from '@/components/services/get-payments';
+import { getPayments } from '@/services/get-payments';
 import { format } from 'date-fns';
 import { Badge } from '@/components/ui/badge';
-import { getCustomerList } from '@/components/services/get-customer-list';
-import { assignPayment } from '@/components/services/assign-payment';
+import { getCustomerList } from '@/services/get-customer-list';
+import { assignPayment } from '@/services/assign-payment';
 import { toast } from 'react-toastify';
 import { Label } from 'recharts';
 

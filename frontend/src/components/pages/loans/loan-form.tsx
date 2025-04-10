@@ -28,8 +28,8 @@ import {
 	keepPreviousData,
 } from '@tanstack/react-query';
 import { toast } from 'react-toastify';
-import { addLoan } from '@/components/services/addLoan';
-import { getCustomerList } from '@/components/services/get-customer-list';
+import { addLoan } from '@/services/addLoan';
+import { getCustomerList } from '@/services/get-customer-list';
 
 interface LoanFormProps {
 	onFormOpen: (isOpen: boolean) => void;
@@ -81,7 +81,6 @@ export function LoanForm({ onFormOpen }: LoanFormProps) {
 							<FormItem>
 								<FormLabel>Customer</FormLabel>
 								<Select
-									// Only pass value when there's a selected customer
 									onValueChange={(val) =>
 										field.onChange(Number(val))
 									}

@@ -7,7 +7,7 @@ import {
 	TableRow,
 } from '@/components/ui/table';
 import { keepPreviousData, useQuery } from '@tanstack/react-query';
-import { getLoans } from '@/components/services/get-loans';
+import { getLoans } from '@/services/get-loans';
 import { format } from 'date-fns';
 
 export function RecentLoans() {

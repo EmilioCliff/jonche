@@ -11,7 +11,7 @@ import { Overview } from '@/components/pages/dashboard/overview';
 import { RecentPayments } from '@/components/pages/dashboard/recent-payments';
 import { RecentLoans } from '@/components/pages/dashboard/recent-loans';
 import { keepPreviousData, useQuery } from '@tanstack/react-query';
-import { getDashboardStats } from '@/components/services/get-dashboard-stats';
+import { getDashboardStats } from '@/services/get-dashboard-stats';
 import DashboardSkeleton from '@/components/pages/dashboard/dashboard-skeleton';
 
 export default function DashboardPage() {

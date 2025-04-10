@@ -33,7 +33,7 @@ import {
 	MoreHorizontal,
 	Search,
 } from 'lucide-react';
-import { getCustomers } from '@/components/services/get-customers';
+import { getCustomers } from '@/services/get-customers';
 import { useDebounce } from '@/hooks/useDebounce';
 import { useTable } from '@/hooks/UseTable';
 

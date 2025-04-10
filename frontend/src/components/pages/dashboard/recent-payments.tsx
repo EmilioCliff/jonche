@@ -1,4 +1,4 @@
-import { getPayments } from '@/components/services/get-payments';
+import { getPayments } from '@/services/get-payments';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { useTable } from '@/hooks/UseTable';
