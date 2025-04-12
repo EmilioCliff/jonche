@@ -11,7 +11,7 @@ export function DashboardHeader({
 	children,
 }: DashboardHeaderProps) {
 	return (
-		<div className="flex items-center justify-between px-2 mb-6">
+		<div className="flex mt-4 items-center justify-between px-2 mb-6">
 			<div className="grid gap-1">
 				<h1 className="font-heading text-3xl md:text-4xl">{heading}</h1>
 				{text && (

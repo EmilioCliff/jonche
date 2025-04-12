@@ -117,7 +117,7 @@ export default function DashboardPage() {
 					</Card>
 				</div>
 				<div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
-					<Card className="col-span-4">
+					<Card className="col-span-4 mt-8">
 						<CardHeader>
 							<CardTitle>Overview</CardTitle>
 						</CardHeader>
@@ -125,7 +125,7 @@ export default function DashboardPage() {
 							<Overview data={data?.overview || []} />
 						</CardContent>
 					</Card>
-					<Card className="col-span-3">
+					<Card className="col-span-3 mt-8">
 						<CardHeader>
 							<CardTitle>Recent Payments</CardTitle>
 							<CardDescription>
@@ -137,7 +137,7 @@ export default function DashboardPage() {
 						</CardContent>
 					</Card>
 				</div>
-				<Card>
+				<Card className="mt-8">
 					<CardHeader>
 						<CardTitle>Recent Loans</CardTitle>
 						<CardDescription>
